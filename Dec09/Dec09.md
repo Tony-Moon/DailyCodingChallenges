@@ -1,5 +1,4 @@
 # December 09, 2019
-Coding challenge: 
 
 **Challenge:** Given a Roman numeral, find the corresponding decimal value. Inputs will be between 1 and 3999.
 
@@ -17,31 +16,31 @@ Output: 1904
 
 Roman numerals are based on the following symbols:
 
-I     1
+I. 1
 
-IV    4
+IV. 4
 
-V     5
+V. 5
 
-IX    9
+IX. 9
 
-X     10
+X. 10
 
-XL    40
+XL. 40
 
-L     50
+L. 50
 
-XC    90
+XC. 90
 
-C     100
+C. 100
 
-CD    400
+CD. 400
 
-D     500
+D. 500
 
-CM    900
+CM. 900
 
-M     1000
+M. 1000
 
 Numbers are strings of these symbols in descending order. In some cases, subtractive notation is used to avoid repeated characters. The rules are as follows:
 
