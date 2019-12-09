@@ -3,10 +3,14 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
-// Set global values for roman numerals using the ANSCII integers for letters
-var romVal = map[byte]int{
+/*
+RomVal is a global map containing all the values of Roman Numerals from I (1) to
+M (1000). They are saved as binary values from ANSCII.
+*/
+var RomVal = map[byte]int{
 	73: 1,    // I
 	86: 5,    // V
 	88: 10,   // X
@@ -22,21 +26,32 @@ func main() {
 	fmt.Println("Roman Numeral: ")
 	fmt.Scan(&romNum)
 
-	numArray := str2Array(romNum)
-	finalSum := compareSum(numArray)
+	numArray := Str2Array(strings.ToUpper(romNum)) // Ensure its uppercase!
+	finalSum := CompareSum(numArray)
 	fmt.Println("In Decimal, your Roman Numeral is: " + strconv.Itoa(finalSum))
 }
 
-func str2Array(romNum string) []int {
+/*
+Str2Array converts a string of Roman Numerals to an array of the corropsonding values.
+This happens by looking at the ANSCII value of each letter and finding the corresponding
+"worth" in the romNum map.
+*/
+func Str2Array(romNum string) []int {
 	strLen := len(romNum)
 	var numArray = make([]int, strLen)
 	for i := range numArray {
-		numArray[i] = romVal[romNum[i]]
+		numArray[i] = RomVal[romNum[i]]
 	}
 	return numArray
 }
 
-func compareSum(numArray []int) int {
+/*
+CompareSum compares and adds the numbers of the array produced by the Str2Array function.
+This function works from right to left, starting with the right-most value and deciding
+wether to add or subtract left value. For example; XIV will start with 5, subtract 1 leaving
+4, then add 10 for a total of 14.
+*/
+func CompareSum(numArray []int) int {
 	var righ, left, summ int
 	fmt.Println(len(numArray) - 1)
 
