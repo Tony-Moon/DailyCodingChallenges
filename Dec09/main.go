@@ -3,5 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello World.")
+	var romNum string
+	fmt.Println("Welcome to the Roman Numeral converter.")
+	fmt.Println("Roman Numeral: ")
+	fmt.Scan(&romNum)
 }
